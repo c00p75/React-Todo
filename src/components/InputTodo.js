@@ -19,7 +19,7 @@ class InputTodo extends Component {
         title: "",
       })
     } else {
-      alert("Please write item")
+      alert("Input field blank")
     }
   };
 
