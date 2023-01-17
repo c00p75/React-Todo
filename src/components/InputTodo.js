@@ -13,10 +13,10 @@ class InputTodo extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    if (this.state.title.trim()) {
-      this.props.addTodoProps(this.state.title)
+    if (this.state.task.trim()) {
+      this.props.addTodoProps(this.state.task)
       this.setState({
-        title: "",
+        task: "",
       })
     } else {
       alert("Input field blank")
@@ -25,9 +25,15 @@ class InputTodo extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Add Todo..." value={this.state.task} name="task" onChange={this.onChange} />
-        <button>Submit</button>
+      <form onSubmit={this.handleSubmit} className="form-container">
+        <input 
+        type="text" placeholder="Add Todo..." 
+        value={this.state.task} 
+        name="task" 
+        onChange={this.onChange}
+        className="input-text"
+         />
+        <button className="input-submit">Submit</button>
       </form>
     )
   }
