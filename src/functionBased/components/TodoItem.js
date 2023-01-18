@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styles from "./TodoItem.module.css"
+import { IoMdTrash } from "react-icons/io"
 
 const TodoItem = (props) => {    
   const [editing, setEditing] = useState(false)
@@ -37,7 +38,7 @@ const TodoItem = (props) => {
       console.log("Cleaning up...")
     }
   }, [])
-  
+
   return (
     <li className={styles.item}>
       <div onDoubleClick={handleEditing} style={viewMode}>
@@ -47,7 +48,11 @@ const TodoItem = (props) => {
           onChange={() => props.handleChangeProps(id)}
           className={styles.checkbox}
         />
-        <button onClick = {() => props.deleteTodoProps(id)}>Delete</button>
+        <button onClick = {() => props.deleteTodoProps(id)}>
+          <IoMdTrash 
+            style={{ color: "orangered", fontSize: "16px" }}
+          />
+        </button>
         <span style={completed ? completedStyle : null}>
           {title}
         </span>

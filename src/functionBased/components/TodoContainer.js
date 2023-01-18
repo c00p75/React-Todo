@@ -16,23 +16,16 @@ const TodoContainer = () => {
   const handleChange = (id) => {
     setTodos(prevState => 
       prevState.map(i => {
-        if(i.id === id){
-          return {
-            ...i,
-            completed: !i.completed,
-          }
-        }
+        if(i.id === id){ return { ...i, completed: !i.completed } }
         return i;
     }))
   }
 
   const delTodo = id => {
     setTodos([
-        ...todos.filter(i => {
-          return i.id !== id;
-        }),
-      ]);
-    };
+      ...todos.filter(i => { return i.id !== id; })
+    ]);
+  };
 
   const addTodoItem = task => {
     const newTodo = {
@@ -45,10 +38,7 @@ const TodoContainer = () => {
 
   const setUpdate = (updatedTitle, id) => {
     setTodos(
-      todos.map(i => {
-        if (i.id === id) {
-          i.title = updatedTitle
-        }
+      todos.map(i => { if (i.id === id) { i.title = updatedTitle }
         return i
       }),
     )
@@ -62,18 +52,18 @@ const TodoContainer = () => {
   }, [todos])
 
   return (
-    <div className="container">
-      <div className="inner">
-        <Header />
-        <InputTodo addTodoProps={addTodoItem} />
-        <TodosList
-          todos={todos}
-          handleChangeProps={handleChange}
-          deleteTodoProps={delTodo}
-          setUpdate={setUpdate}
-        />
+      <div className="container">
+        <div className="inner">
+          <Header />
+          <InputTodo addTodoProps={addTodoItem} />
+          <TodosList
+            todos={todos}
+            handleChangeProps={handleChange}
+            deleteTodoProps={delTodo}
+            setUpdate={setUpdate}
+          />
+        </div>
       </div>
-    </div>
   )
 }
 
