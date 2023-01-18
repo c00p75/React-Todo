@@ -44,7 +44,7 @@ class TodoItem extends Component {
             onChange={() => this.props.handleChangeProps(id)}
             className={styles.checkbox}
           />
-          <button onClick = {() => this.props.deleteTodoProps(this.id)}>Delete</button>
+          <button onClick = {() => this.props.deleteTodoProps(id)}>Delete</button>
           <span style={completed ? this.completedStyle : null}>
             {title}
           </span>
